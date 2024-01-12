@@ -1,0 +1,36 @@
+.container {
+    background: rgba(88, 88, 88, 0.15);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(3.2px);
+    -webkit-backdrop-filter: blur(3.2px);
+    border: 1px solid rgba(88, 88, 88, 0.15);
+    border-radius: 1rem;
+}
+
+.grid {
+    height: 320px;
+    width: 320px;
+    display: grid;
+    padding: 0 1rem;
+    grid-template-columns: 5.5rem 1.33% 5.5rem 1.33% 5.5rem 1.33% 5.5rem;
+    grid-template-rows: 1rem 1.33% 5.5rem 1.33% 5.5rem 1.33% 5.5rem 1.33% 1rem;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    box-shadow: inset 0px 0px 66px -14px rgba(172, 170, 170, 0.13);
+    border-radius: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+
+@media (min-width: 1600px) {
+  .grid {
+    margin-top: 1.5rem;
+    border-radius: 40%;
+    height: 520px;
+    width: 520px;
+    grid-template-columns: 7.5rem 1.33% 7.5rem 1.33% 7.5rem 1.33% 7.5rem;
+    grid-template-rows: 1rem 1.33% 7.5rem 1.33% 7.5rem 1.33% 7.5rem 1.33% 1rem;
+
+  }
+}

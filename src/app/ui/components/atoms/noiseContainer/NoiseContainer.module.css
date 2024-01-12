@@ -1,0 +1,23 @@
+.NoiseContainer {
+    border-radius: 0.5rem;
+    z-index: 10;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    background-color: #181717e0;
+  }
+  
+  .NoiseContainer::after {
+    content: "";
+    background-image: url("../../../../../../public/RpdD.gif");
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 0.5rem;
+    opacity: 0.09;
+    z-index: 1;
+    mix-blend-mode: multiply;
+    z-index: -1;
+  }
