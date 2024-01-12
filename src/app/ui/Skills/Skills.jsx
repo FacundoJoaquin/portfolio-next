@@ -53,6 +53,7 @@ const emptyGrid = [
 ]
 
 const Skills = ({ position }) => {
+	console.log('asd')
 	return (
 		<ContentContainer style={`${position} overflow-hidden `}>
 			<ContentTitle classname="px-6 py-4">Tecnologías</ContentTitle>
