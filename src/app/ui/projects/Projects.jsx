@@ -1,3 +1,5 @@
+'use client'
+
 import React, { useEffect, useRef, useState } from 'react';
 import styles from './projects.module.css'
 import ContentContainer from '../components/atoms/ContentContainer/ContentContainer'
@@ -11,6 +13,7 @@ import Pedidosya from '../../../../public/pedidosya.svg'
 import { SiGithub, SiNetlify } from 'react-icons/si'
 import Link from 'next/link'
 import ContentTitle from '../components/atoms/ContentTitle/ContentTitle';
+import { useAppContext } from '../../context';
 
 const proyectsData = [
   {
@@ -93,13 +96,14 @@ export function useHorizontalScroll() {
 const Projects = ({ position }) => {
   const scrollRef = useHorizontalScroll();
 
+  const { ui } = useAppContext()
   return (
     <ContentContainer style={`${position} bg-red-500 w-full h-full px-6 py-4 overflow-hidden`}>
       <ContentTitle>Proyectos</ContentTitle>
-      <div className={`${styles.scrollable} 2xl:gap-x-2`} >
+      <div className={`${ui.dark ? styles.darkScrollable : styles.scrollable} 2xl:gap-x-2`} >
         {proyectsData.map((proyect, index) => {
           return (
-            <article ref={scrollRef} key={index} className='ml-2 h-full md:min-w-[500px] md:max-w-[500px] 2xl:min-w-[600px] 2xl:max-w-[600px] flex p-1 gap-x-1 2xl:gap-x-0'>
+            <article ref={scrollRef} key={index} className='ml-2 min-w-[400px] h-full md:min-w-[500px] md:max-w-[500px] 2xl:min-w-[600px] 2xl:max-w-[600px] flex p-1 gap-x-1 2xl:gap-x-0'>
               <div className='min-w-16 max-w-16 2xl:min-w-24 2xl:max-w-24'>
                 <div className={`${styles.container} size-14 rounded-full grid place-items-center overflow-hidden 2xl:size-20`}>
 
@@ -108,12 +112,12 @@ const Projects = ({ position }) => {
               </div>
 
               <span className=' flex flex-col justify-between gap-y-1 flex-grow-1'>
-                <h2 className='text-xl font-medium 2xl:text-3xl'>{proyect.name}</h2>
-                <p className='text-sm 2xl:text-xl'>{proyect.tecnologies}</p>
-                <p className="2xl:text-2xl">{proyect.description}</p>
+                <h2 className='text-xl font-medium 2xl:text-3xl dark:text-darkSurface-300'>{proyect.name}</h2>
+                <p className='text-sm 2xl:text-xl dark:text-darkSurface-100'>{proyect.tecnologies}</p>
+                <p className="2xl:text-2xl dark:text-darkSurface-100">{proyect.description}</p>
                 <span className='flex gap-x-4'>
-                  <Link href={proyect.github} className='hover:scale-[1.1] hover:text-black transition-all duration-200 size-7  2xl:size-10 px-2'><SiGithub className='size-7 2xl:size-10 text-[#333]' href={`Repositorio de github de ${proyect.name}`} /> </Link>
-                  <Link href={'#'} className='hover:scale-[1.1] hover:text-black transition-all duration-200 size-7 2xl:size-10 px-2'><SiNetlify className='size-7 2xl:size-10 text-[#333]' href={`Repositorio de github de ${proyect.name}`} /> </Link>
+                  <Link href={proyect.github} className='hover:scale-[1.1] hover:text-black  transition-all duration-200 size-7  2xl:size-10 px-2'><SiGithub className='size-7 2xl:size-10 text-[#333] dark:text-darkSurface-300 hover:dark:text-darkSurface-400' href={`Repositorio de github de ${proyect.name}`} /> </Link>
+                  <Link href={'#'} className='hover:scale-[1.1] hover:text-black transition-all duration-200 size-7 2xl:size-10 px-2'><SiNetlify className='size-7 2xl:size-10 text-[#333] dark:text-darkSurface-300 hover:dark:text-darkSurface-400' href={`Repositorio de github de ${proyect.name}`} /> </Link>
                 </span>
               </span>
             </article>

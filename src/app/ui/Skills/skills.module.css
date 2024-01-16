@@ -22,6 +22,14 @@
     position: relative;
 }
 
+@media (max-width: 768px) {
+  .grid {
+    box-shadow: none;
+    border-radius: none;
+    overflow: visible;
+    
+  }
+}
 
 @media (min-width: 1600px) {
   .grid {

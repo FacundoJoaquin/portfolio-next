@@ -5,11 +5,21 @@ module.exports = {
     './src/components/**/*.{js,ts,jsx,tsx,mdx}',
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
+  darkMode: 'class', 
   theme: {
     extend: {
+      gridTemplateRows: {
+        'layout': ' repeat(auto-fill, minmax(50px, 1fr))',
+      },
       colors: {
         bordo: {
           '100': '#750E21',
+        },
+        darkSurface: {
+          '100': '#C3BFDE',
+          '200': '#b6b0d5',
+          '300': '#9b8fc3',
+          '400': '#8775b2',
         },
       },
       animation: {

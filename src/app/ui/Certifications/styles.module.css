@@ -11,8 +11,8 @@
     height: 92%;
     overflow-y: scroll;
     display: flex;
-    --sb-track-color: #fdfdfd;
-    --sb-thumb-color: #e2dfdf;
+    --sb-track-color: #b6b0d5;
+    --sb-thumb-color: #8775b2;
     --sb-size: 10px;
 
     scrollbar-color: var(--sb-thumb-color) var(--sb-track-color);
@@ -27,6 +27,31 @@
 }
 
 .scrollable::-webkit-scrollbar-thumb {
+    background: var(--sb-thumb-color);
+    border-radius: 16px;
+    border: 1px solid #fdfdfd;
+}
+
+.darkScrollable {
+    height: 92%;
+    overflow-y: scroll;
+    display: flex;
+    --sb-track-color: #fdfdfd;
+    --sb-thumb-color: #e2dfdf;
+    --sb-size: 10px;
+
+    scrollbar-color: var(--sb-thumb-color) var(--sb-track-color);
+}
+.darkScrollable::-webkit-scrollbar {
+    width: var(--sb-size)
+}
+
+.darkScrollable::-webkit-scrollbar-track {
+    background: var(--sb-track-color);
+    border-radius: 10px;
+}
+
+.darkScrollable::-webkit-scrollbar-thumb {
     background: var(--sb-thumb-color);
     border-radius: 16px;
     border: 1px solid #fdfdfd;
