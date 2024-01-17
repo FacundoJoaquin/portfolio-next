@@ -21,7 +21,7 @@ const Certifications = ({ position }) => {
             <ContentTitle classname=' px-6 '>
                 Certificados
             </ContentTitle>
-            <div className={`flex flex-col mt-4 overflow-y-scroll h-[100%] pb-16 gap-y-4 ${ui.dark? styles.scrollable : styles.darkScrollable}`}>
+            <div className={`flex flex-col mt-4 overflow-y-scroll h-[100%] pb-16 gap-y-4 ${ui.dark? styles.darkScrollable : styles.scrollable}`}>
 
                 {certifications.map((certification, index) => {
                     return (

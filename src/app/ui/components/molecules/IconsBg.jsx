@@ -19,9 +19,7 @@ import { useAppContext } from "../../../context";
 export default function IconParticles() {
   const { ui, setUi } = useAppContext(); 
 
-  useEffect(() => {
-    console.log('ui desde icon', ui)
-  },[ui])
+
   return (
     <div className="particles-icons opacity-40">
       <BiLogoTypescript className={`${ui.dark ? 'text-[#2F74C0] ' : ''} particle-icon transition-colors  ease-in-out`} />

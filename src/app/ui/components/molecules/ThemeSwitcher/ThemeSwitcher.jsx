@@ -12,13 +12,13 @@ const ThemeSwitcher = () => {
 
 
     useEffect(() => {
-        const isDarkMode = localStorage.getItem('darkMode') === 'true';
+        const isDarkMode = sessionStorage.getItem('darkMode') === 'true';
         setDarkMode(isDarkMode);
     }, []);
 
     useEffect(() => {
         document.documentElement.classList.toggle('dark', darkMode);
-        localStorage.setItem('darkMode', darkMode);
+        sessionStorage.setItem('darkMode', darkMode);
     }, [darkMode]);
 
     const toggleDarkMode = () => {

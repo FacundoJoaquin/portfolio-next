@@ -8,11 +8,11 @@ const AboutMe = ({ position }) => {
   const {ui} = useAppContext()
 
   return (
-    <ContentContainer style={`${position} px-6 pt-4 overflow-hidden`}>
+    <ContentContainer style={`${position} pl-6 pt-4 overflow-hidden`}>
       <ContentTitle>Sobre mi</ContentTitle>
-      <div className={`overflow-y-auto flex flex-col gap-y-2 lg:text-xl ${ui.dark ? styles.darkBlurContainer : styles.blurContainer}`}>
+      <div className={`overflow-y-auto  flex flex-col gap-y-2 lg:text-xl ${ui.dark ? styles.darkBlurContainer : styles.blurContainer}`}>
 
-        <p className=' dark:text-darkSurface-100'>
+        <p className=' dark:text-darkSurface-100 '>
           Programador que busca desarrollar para seres humanos.
         </p>
         <p className='mb-4 dark:text-darkSurface-100'>
