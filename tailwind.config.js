@@ -7,6 +7,7 @@ module.exports = {
   ],
   darkMode: 'class', 
   theme: {
+
     extend: {
       gridTemplateRows: {
         'layout': ' repeat(auto-fill, minmax(50px, 1fr))',
