@@ -15,7 +15,8 @@ import { SiGithub, SiNetlify } from 'react-icons/si'
 import Link from 'next/link'
 import ContentTitle from '../components/atoms/ContentTitle/ContentTitle';
 import { useAppContext } from '../../context';
-
+import { RiEyeLine } from 'react-icons/ri';
+import Modal from '../components/atoms/Modal/Modal'
 const proyectsData = [
   {
     name: 'Tuki',
@@ -25,6 +26,8 @@ const proyectsData = [
     deploy: 'netlify',
     logo: Tuki,
     urlDeploy: 'https://main--remarkable-cucurucho-f08c98.netlify.app/',
+    work: false,
+    explained: '',
     size: 'w-9 2xl:w-16'
   },
   {
@@ -35,16 +38,20 @@ const proyectsData = [
     deploy: 'netlify',
     logo: Vertis,
     urlDeploy: '',
+    work: true,
+    explained: 'Vertis es un proyecto cuya finalidad es la gestión, venta y producción de distintas pautas publicitarias. Consta de dos modulos, un sales module, que se encarga de documentar los clientes, ventas, disponibilidad y precios. Mientras que el production module busca facilitar el trabajo del operador de turno en cuanto las distintas publicidades diarías con sus respectivas caracteristicas.',
     size: 'size-12 relative -top-1 2xl:size-20 2xl:-top-2'
   },
   {
     name: 'Ms-olt',
-    tecnologies: 'Python - Flask | Paramiko | Docker | Sveltekit | Tailwind ',
+    tecnologies: 'Python | Paramiko | Docker | Sveltekit | Tailwind ',
     description: 'Microservicio que entabla conexiones SSH a OLT y ejecutar comandos.',
     github: '#',
     deploy: 'netlify',
     logo: Router,
     urlDeploy: '#',
+    work: true,
+    explained: 'Ms-olt, o cómo lo conocen en mi trabajo -Facutuls-, es un microservicio que, mediante conexiones SSH busca recabar información en las OLT de ONUS, para también poder ejecutar distintos tipos de comandos sobre estas últimas.',
     size: 'size-8 2xl:size-12'
   },
   {
@@ -55,6 +62,8 @@ const proyectsData = [
     deploy: 'netlify',
     logo: Pokeball,
     urlDeploy: 'https://frolicking-centaur-26c1c8.netlify.app/',
+    work: false,
+    explained: '',
     size: 'size-8 2xl:size-12'
   },
   {
@@ -65,6 +74,8 @@ const proyectsData = [
     deploy: 'netlify',
     logo: Radio,
     urlDeploy: 'https://dainty-tarsier-5f55ba.netlify.app/',
+    work: false,
+    explained: '',
     size: 'size-12 2xl:size-14'
   },
   {
@@ -75,6 +86,8 @@ const proyectsData = [
     deploy: 'netlify',
     logo: Pedidosya,
     urlDeploy: 'https://github.com/FacundoJoaquin/Calculadora-Peya/deployments/github-pages',
+    work: false,
+    explained: '',
     size: 'size-12 2xl:size-16'
   },
   {
@@ -85,42 +98,31 @@ const proyectsData = [
     deploy: 'netlify',
     logo: Ywg,
     urlDeploy: 'https://github.com/FacundoJoaquin/Calculadora-Peya/deployments/github-pages',
+    work: false,
+    explained: '',
     size: 'size-12 2xl:size-20 rounded-full'
   },
 
 ]
 
-export function useHorizontalScroll() {
-  const elRef = useRef();
-  useEffect(() => {
-    const el = elRef.current;
-    if (el) {
-      const onWheel = e => {
-        if (e.deltaY == 0) return;
-        e.preventDefault();
-        el.scrollTo({
-          left: el.scrollLeft + e.deltaY,
-          behavior: "smooth"
-        });
-      };
-      el.addEventListener("wheel", onWheel);
-      return () => el.removeEventListener("wheel", onWheel);
-    }
-  }, []);
-  return elRef;
-}
-
 const Projects = ({ position }) => {
-  const scrollRef = useHorizontalScroll();
+  const [showModal, setShowModal] = useState(false)
+  const [selectedProject, setSelectedProject] = useState(null);
+
+  const handleButtonClick = (index) => {
+    setSelectedProject(proyectsData[index]);
+    setShowModal(true);
+  };
+
 
   const { ui } = useAppContext()
   return (
     <ContentContainer style={`${position} bg-red-500 w-full h-full px-6 py-4 overflow-hidden`}>
       <ContentTitle>Proyectos</ContentTitle>
-      <div className={`${ui.dark ? styles.darkScrollable : styles.scrollable} 2xl:gap-x-2`} >
+      <div className={`${!ui.dark ? styles.darkScrollable : styles.scrollable} 2xl:gap-x-2`} >
         {proyectsData.map((proyect, index) => {
           return (
-            <article ref={scrollRef} key={index} className='ml-2 min-w-[400px] h-full md:min-w-[500px] md:max-w-[500px] 2xl:min-w-[600px] 2xl:max-w-[600px] flex p-1 gap-x-1 2xl:gap-x-0'>
+            <article key={index} className='ml-2 min-w-[400px] h-full md:min-w-[500px] md:max-w-[500px] 2xl:min-w-[600px] 2xl:max-w-[600px] flex p-1 gap-x-1 2xl:gap-x-0'>
               <div className='min-w-16 max-w-16 2xl:min-w-24 2xl:max-w-24'>
                 <div className={`${styles.container} size-14 rounded-full grid place-items-center overflow-hidden 2xl:size-20`}>
 
@@ -129,22 +131,34 @@ const Projects = ({ position }) => {
               </div>
 
               <span className=' flex flex-col justify-between gap-y-1 flex-grow-1'>
-                <h2 className='text-xl font-semibold 2xl:text-3xl dark:text-darkSurface-300 '>{proyect.name}</h2>
-                <p className='text-sm 2xl:text-xl dark:text-darkSurface-100'>{proyect.tecnologies}</p>
-                <p className="2xl:text-2xl dark:text-darkSurface-100">{proyect.description}</p>
-                <span className='flex gap-x-4'>
-                  <Link href={proyect.github} className='hover:scale-[1.1] hover:text-black  transition-all duration-200 size-7  2xl:size-10 px-2'><SiGithub className='size-7 2xl:size-10 text-[#333] dark:text-darkSurface-300 hover:dark:text-darkSurface-400' href={`Repositorio de github de ${proyect.name}`} /> </Link>
-                  <Link href={proyect.urlDeploy} className='hover:scale-[1.1] hover:text-black transition-all duration-200 size-7 2xl:size-10 px-2'><SiNetlify className='size-7 2xl:size-10 text-[#333] dark:text-darkSurface-300 hover:dark:text-darkSurface-400' href={`Repositorio de github de ${proyect.name}`} /> </Link>
-                </span>
+                <h2 className='text-xl font-semibold 2xl:text-3xl dark:text-black text-darkSurface-300 '>{proyect.name}</h2>
+                <p className='text-sm 2xl:text-xl dark:text-black text-darkSurface-100'>{proyect.tecnologies}</p>
+                <p className="2xl:text-2xl dark:text-black text-darkSurface-100">{proyect.description}</p>
+                {proyect.work === true ? (
+                  <button href={'#'} onClick={() => handleButtonClick(index)}
+                    className='hover:scale-[1.1] hover:text-black  transition-all duration-200 size-7  2xl:size-10 px-2'>
+                    <RiEyeLine className='size-7 2xl:size-10 dark:text-[#333] text-darkSurface-300 hover:text-darkSurface-400' />
+                  </button>
+                ) : (
+                  <><span className='flex gap-x-4'>
+                    <Link href={proyect.github} className='hover:scale-[1.1] hover:text-black  transition-all duration-200 size-7  2xl:size-10 px-2'><SiGithub className='size-7 2xl:size-10 dark:text-[#333] text-darkSurface-300 hover:text-darkSurface-400' href={`Repositorio de github de ${proyect.name}`} /> </Link>
+                    <Link href={proyect.urlDeploy} className='hover:scale-[1.1] hover:text-black transition-all duration-200 size-7 2xl:size-10 px-2'><SiNetlify className='size-7 2xl:size-10 dark:text-[#333] text-darkSurface-300 hover:text-darkSurface-400' href={`Repositorio de github de ${proyect.name}`} /> </Link>
+                  </span> </>
+                )}
               </span>
-            </article>
+            </article >
           )
         })}
+        {showModal && selectedProject && (
+          <Modal close={() => setShowModal(false)}>
+            <p>Lamentablemente, al estar en producción no puedo mostrartelo.</p>
+            <p>{selectedProject.explained}</p>
+          </Modal>
+        )}
 
 
-
-      </div>
-    </ContentContainer>
+      </div >
+    </ContentContainer >
   )
 }
 

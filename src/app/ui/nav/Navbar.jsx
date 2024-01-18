@@ -1,6 +1,7 @@
 "use client"
 
 import React, { useEffect, useState } from 'react'
+import styles from './navbar.module.css'
 import ContentContainer from '../components/atoms/ContentContainer/ContentContainer'
 import { BiLogoGmail, BiSolidMoon, BiSolidSun } from 'react-icons/bi'
 import Image from 'next/image'
@@ -45,7 +46,7 @@ const Navbar = ({ position }) => {
           <Link href={app.url === '#' ? 'mailto:facundojoaquinn@gmail.com' : app.url } about={`Link to Facundo Joaquin ${app.name}`} key={index}>
             <div
               
-              className={`h-10 w-10 md:h-12 md:w-12 grid place-items-center rounded-full border dark:border-darkSurface-300 border-gray-200 shadow-md bg-white transition-all duration-300 cursor-pointer 2xl:size-16 ${app.textColor} ${app.hover}`}
+              className={`${styles.container} h-10 w-10 md:h-12 md:w-12 grid place-items-center rounded-full border border-darkSurface-300 dark:border-gray-200 shadow-md bg-white  transition-all duration-300 cursor-pointer 2xl:size-16 ${app.textColor} ${app.hover}`}
             >
               {app.svg}
             </div>
@@ -55,18 +56,18 @@ const Navbar = ({ position }) => {
         href={'https://drive.google.com/file/d/187BwXN0RZtdAaALCY6OAh4MiVdvvZ17R/view?usp=drive_link'}
         target='_BLANK'
         about='Link al CV de Facundo Joaquin - Link to Facundo Joaquin resume'
-          className={`h-10 w-10 md:h-12 md:w-12 grid  place-items-center rounded-full border dark:border-darkSurface-300 border-gray-200 shadow-md bg-white transition-all duration-300 cursor-pointer 2xl:size-16 `}
+          className={`h-10 w-10 md:h-12 md:w-12 grid  place-items-center rounded-full border border-darkSurface-300 dark:border-gray-200 shadow-md bg-white transition-all duration-300 cursor-pointer 2xl:size-16 `}
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
         >
-          <Image src={ResumeColor} className='size-6 hover:scale-[1.1]  2xl:size-10 relative left-[0.1rem] transition-all duration-300 ease-in-out' alt='Curriculum vitae - Resume Facundo Joaquin' />
+          <Image src={ResumeColor} className='size-7 hover:scale-[1.1]  2xl:size-10 relative left-[0.1rem] transition-all duration-300 ease-in-out' alt='Curriculum vitae - Resume Facundo Joaquin' />
         </Link>
       </span>
       <span className='flex items-center justify-center gap-x-4'>
         <ThemeSwitcher />
         <div
           onClick={toggleEyeColor}
-          className={`h-10 w-10 md:h-12 md:w-12 grid place-items-center rounded-full border dark:border-darkSurface-300 border-gray-200 shadow-md bg-white transition-all duration-300 cursor-pointer 2xl:size-[4rem]`}
+          className={`h-10 w-10 md:h-12 md:w-12 grid place-items-center rounded-full border border-darkSurface-300 dark:border-gray-200 shadow-md bg-white transition-all duration-300 cursor-pointer 2xl:size-[4rem]`}
         >
           {isEyeColor ? (
             <Image src={EyeColor} className='md:h-8 md:w-8 h-6 w-6' alt='' />

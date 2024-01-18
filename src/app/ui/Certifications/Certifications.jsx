@@ -21,7 +21,7 @@ const Certifications = ({ position }) => {
             <ContentTitle classname=' px-6 '>
                 Certificados
             </ContentTitle>
-            <div className={`flex flex-col mt-4 overflow-y-scroll h-[100%] pb-16 gap-y-4 ${ui.dark? styles.darkScrollable : styles.scrollable}`}>
+            <div className={`flex flex-col mt-4 overflow-y-scroll h-[100%] pb-16 gap-y-4 ${!ui.dark? styles.darkScrollable : styles.scrollable}`}>
 
                 {certifications.map((certification, index) => {
                     return (
@@ -29,9 +29,9 @@ const Certifications = ({ position }) => {
                             <div className={`${styles.container} size-14 rounded-full grid place-items-center overflow-hidden 2xl:size-20`}>
                                 <Image alt={certification.description} src={certification.img}/>
                             </div>
-                            <h3 className='font-semibold text-xl dark:text-darkSurface-200'>{certification.name}</h3>
+                            <h3 className='font-semibold text-xl dark:text-black text-darkSurface-200'>{certification.name}</h3>
                             <Link href={certification.url} target='__BLANK' about={[certification.description]} >
-                                <BiLinkExternal className='size-5 cursor-pointer hover:size-6 hover:scale-[1.01] hover:transition-all ease-in-out duration-200 dark:text-darkSurface-300' />
+                                <BiLinkExternal className='size-5 cursor-pointer hover:size-6 hover:scale-[1.01] hover:transition-all ease-in-out duration-200 dark:text-black text-darkSurface-300' />
                             </Link>
                         </div>
 

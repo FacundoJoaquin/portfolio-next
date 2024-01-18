@@ -5,7 +5,7 @@ const ContentContainer = ({children, style}) => {
   const { ui } = useAppContext();
   
   return (
-    <section className={`${ui.dark ? styles.darkContainer : styles.container} ${style}`}>
+    <section className={`${!ui.dark ? styles.darkContainer : styles.container} ${style}`}>
         {children}
     </section>
   )

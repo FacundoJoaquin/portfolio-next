@@ -29,11 +29,11 @@ const Music = ({ position }) => {
 
     return (
         <ContentContainer style={`${position} flex flex-col items-center justify-evenly`}>
-            <div className="size-20 overflow-hidden border dark:border-darkSurface-400 border-neutral-400  grid place-items-center rounded-full 2xl:size-24">
+            <div className="size-20 overflow-hidden border border-darkSurface-400 dark:border-neutral-400  grid place-items-center rounded-full 2xl:size-24">
                 <Image
                     src={pinpanther}
                     alt="dspn"
-                    className={` relative left-[0.5] top-1 dark:opacity-70 ${isPlaying ? 'animate-spin   ' : ' 2xl:w-24 '}`}
+                    className={` relative left-[0.5] top-1  opacity-100 ${isPlaying ? 'animate-spin   ' : ' 2xl:w-24 '}`}
                 />
             </div>
             <div className="flex flex-col justify-center items-center w-full">
@@ -41,11 +41,11 @@ const Music = ({ position }) => {
                     <source src="/pawsa.mp3" type="audio/mp3" />
                 </audio>
 
-                <BiSkipNext className="-rotate-90 size-16 dark:text-darkSurface-100 text-zinc-400 2xl:size-24" onClick={skipBackwardHandler} />
+                <BiSkipNext className="-rotate-90 size-16 text-darkSurface-100 dark:text-zinc-400 2xl:size-24" onClick={skipBackwardHandler} />
                 <button onClick={playPauseHandler}>
-                    <RiPlayLine className="-rotate-90 dark:text-darkSurface-100 size-16 text-zinc-400 2xl:size-24" />
+                    <RiPlayLine className="-rotate-90 text-darkSurface-100 size-16 dark:text-zinc-400 2xl:size-24" />
                 </button>
-                <BiSkipNext className="rotate-90 size-16 dark:text-darkSurface-100 text-zinc-400 anima 2xl:size-24" onClick={skipForwardHandler} />
+                <BiSkipNext className="rotate-90 size-16 text-darkSurface-100 dark:text-zinc-400 anima 2xl:size-24" onClick={skipForwardHandler} />
             </div>
         </ContentContainer>
     );

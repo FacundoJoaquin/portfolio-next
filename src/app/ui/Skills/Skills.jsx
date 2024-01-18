@@ -56,9 +56,9 @@ const Skills = ({ position }) => {
 	return (
 		<ContentContainer style={`${position} overflow-hidden `}>
 			<ContentTitle classname="px-6 py-4 ">Tecnologías</ContentTitle>
-			<div className="flex justify-center items-center flex-col">
+			<div className="grid place-items-center  h-max">
 				<div
-					className={`${style.grid}  flex justify-center hover:rounded-md hover:w-full duration-300 `}
+					className={`${style.grid} mt-6 flex justify-center hover:rounded-md hover:w-full duration-40 ease-in-out transition-all `}
 				>
 					{emptyGrid.map((e, index) => {
 						return (
@@ -67,7 +67,7 @@ const Skills = ({ position }) => {
 					})}
 					{technologies.map((stack, index) => {
 						return (
-							<div key={index} className={`${stack.position} border border-neutral-300 dark:border-[#C3BFDE] grid place-items-center hover:bg-[#e4e3e3] dark:hover:bg-[#C3BFDE] hover:duration-150 `}>
+							<div key={index} className={`${stack.position} border dark:border-neutral-300 border-[#C3BFDE] grid place-items-center dark:hover:bg-[#e4e3e3] hover:bg-[#C3BFDE] hover:duration-200 `}>
 								{stack.icon}
 							</div>
 
