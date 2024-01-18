@@ -58,7 +58,7 @@ const Skills = ({ position }) => {
 			<ContentTitle classname="px-6 py-4 ">Tecnologías</ContentTitle>
 			<div className="grid place-items-center  h-max">
 				<div
-					className={`${style.grid} mt-6 flex justify-center hover:rounded-md hover:w-full duration-40 ease-in-out transition-all `}
+					className={`${style.grid} mt-6 flex justify-center hover:rounded-md sm:hover:w-full duration-[700ms] ease-in-out transition-all `}
 				>
 					{emptyGrid.map((e, index) => {
 						return (

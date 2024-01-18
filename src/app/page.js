@@ -22,8 +22,8 @@ export default function Home() {
     <main className={`${ui.hidden ? 'overflow-y-hidden h-dvh ' : ''} grid select-none grid-rows-layout overflow-y-auto overflow-x-hidden grid-cols-3 lg:grid-rows-12 p-6 lg:grid-cols-10 h-full w-full xl:overflow-hidden 2xl:p-20 gap-6 `}>
       <IconsBg />
       <Presentation position={`${ui.hidden ? 'opacity-0 transition-opacity duration-[400ms] ease-in-out' : 'opacity-100 transition-opacity duration-[400ms] ease-in-out'} row-start-1 col-span-full row-span-2 lg:col-start-1 lg:col-span-4 lg:row-start-1 lg:row-span-3`} />
-      <Projects position={`${ui.hidden ? 'opacity-0 transition-opacity duration-[400ms] ease-in-out' : 'opacity-100 transition-opacity duration-[400ms] ease-in-out'} row-start-7 col-span-full row-span-4 lg:col-start-5 lg:col-span-full lg:row-span-6`} />
-      <Skills position={`${ui.hidden ? 'opacity-0 transition-opacity duration-[400ms] ease-in-out' : 'opacity-100 transition-opacity duration-[400ms] ease-in-out'} row-start-11 row-end-[30] col-span-full row-span-4 lg:col-start-1 lg:col-span-3 lg:row-start-4 lg:row-span-full `} />
+      <Projects position={`${ui.hidden ? 'opacity-0 transition-opacity duration-[400ms] ease-in-out' : 'opacity-100 transition-opacity duration-[400ms] ease-in-out'} row-start-7 col-span-full row-span-6 lg:col-start-5 lg:col-span-full lg:row-span-6`} />
+      <Skills position={`${ui.hidden ? 'opacity-0 transition-opacity duration-[400ms] ease-in-out' : 'opacity-100 transition-opacity duration-[400ms] ease-in-out'} row-start-13 row-end-[30] col-span-full row-span-4 lg:col-start-1 lg:col-span-3 lg:row-start-4 lg:row-span-full `} />
       <Music position={`${ui.hidden ? 'opacity-0 transition-opacity duration-[400ms] ease-in-out' : 'opacity-100 transition-opacity duration-[400ms] ease-in-out'} col-start-3 row-start-3 row-span-4 lg:col-start-4 lg:col-span-1 lg:row-start-4 lg:row-span-7`} />
       <AboutMe position={`${ui.hidden ? 'opacity-0 transition-opacity duration-[400ms] ease-in-out' : 'opacity-100 transition-opacity duration-[400ms] ease-in-out'} row-start-3 col-span-2 row-span-4 row-span lg:col-start-8 lg:col-span-3 lg:row-start-7 lg:row-span-full`} />
 

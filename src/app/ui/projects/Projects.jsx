@@ -122,7 +122,7 @@ const Projects = ({ position }) => {
       <div className={`${!ui.dark ? styles.darkScrollable : styles.scrollable} 2xl:gap-x-2`} >
         {proyectsData.map((proyect, index) => {
           return (
-            <article key={index} className='ml-2 min-w-[400px] h-full md:min-w-[500px] md:max-w-[500px] 2xl:min-w-[600px] 2xl:max-w-[600px] flex p-1 gap-x-1 2xl:gap-x-0'>
+            <article key={index} className='ml-2 min-w-[450px] h-full md:min-w-[500px] md:max-w-[500px] 2xl:min-w-[600px] 2xl:max-w-[600px] flex p-1 gap-x-1 2xl:gap-x-0'>
               <div className='min-w-16 max-w-16 2xl:min-w-24 2xl:max-w-24'>
                 <div className={`${styles.container} size-14 rounded-full grid place-items-center overflow-hidden 2xl:size-20`}>
 
@@ -136,7 +136,7 @@ const Projects = ({ position }) => {
                 <p className="2xl:text-2xl dark:text-black text-darkSurface-100">{proyect.description}</p>
                 {proyect.work === true ? (
                   <button href={'#'} onClick={() => handleButtonClick(index)}
-                    className='hover:scale-[1.1] hover:text-black  transition-all duration-200 size-7  2xl:size-10 px-2'>
+                    className='hover:scale-[1.1] grid place-items-center hover:text-black  transition-all duration-200 size-7  2xl:size-10 px-2'>
                     <RiEyeLine className='size-7 2xl:size-10 dark:text-[#333] text-darkSurface-300 hover:text-darkSurface-400' />
                   </button>
                 ) : (
