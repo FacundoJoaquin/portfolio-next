@@ -48,7 +48,7 @@ const Music = ({ position }) => {
                 <Image
                     src={pinpanther}
                     alt="dspn"
-                    className={` relative left-[0.5] top-1  opacity-100 `}
+                    className={` relative right-[.3rem] `}
                     style={{
                         transform: `rotate(${angle}deg)`
                     }}

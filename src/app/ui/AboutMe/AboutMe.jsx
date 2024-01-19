@@ -15,11 +15,11 @@ const AboutMe = ({ position }) => {
         <p className=' dark:text-black text-darkSurface-100  pr-6'>
           Programador que busca desarrollar para seres humanos.
         </p>
-        <p className='mb-4 dark:text-black text-darkSurface-100 pr-6'>
+        <p className='dark:text-black text-darkSurface-100 pr-6'>
           Actualmente trabajando cómo Fullstack para Red Uno, empresa provedora de internet y radiocomunicaciones.
         </p>
         <p className='mb-4 dark:text-black text-darkSurface-100 pr-6'>
-          Actualmente aprendiendo Next Js  e Ingles.
+          Aprendiendo NextJS e Inglés.
         </p>
       </div>
     </ContentContainer>

@@ -114,12 +114,47 @@ const Projects = ({ position }) => {
     setShowModal(true);
   };
 
+  useEffect(() => {
+    const postScroll = document.getElementById("scrollable");
+    let scrollingHorizontally = true;
+  
+    const smoothHorizontalScroll = (amount) => {
+      let scrollAmount = 0;
+      const step = 10; 
+  
+      const slideTimer = setInterval(() => {
+        postScroll.scrollLeft += step * (amount < 0 ? -1 : 1);
+        scrollAmount += Math.abs(step);
+        if(scrollAmount >= Math.abs(amount)){
+          clearInterval(slideTimer);
+        }
+      }, 25); 
+    }
+  
+    const handleWheel = (event) => {
+      if (scrollingHorizontally) {
+        smoothHorizontalScroll(event.deltaY < 0 ? -100 : 100);
+        event.preventDefault();
+  
+        if (postScroll.scrollLeft >= postScroll.scrollWidth - postScroll.clientWidth) {
+          scrollingHorizontally = false;
+          postScroll.style.overflowY = "auto";
+        }
+      }
+    };
+  
+    postScroll.addEventListener("wheel", handleWheel);
+  
+    return () => {
+      postScroll.removeEventListener("wheel", handleWheel);
+    };
+  }, []);
 
   const { ui } = useAppContext()
   return (
     <ContentContainer style={`${position} bg-red-500 w-full h-full px-6 py-4 overflow-hidden`}>
       <ContentTitle>Proyectos</ContentTitle>
-      <div className={`${!ui.dark ? styles.darkScrollable : styles.scrollable} 2xl:gap-x-2`} >
+      <div className={`${!ui.dark ? styles.darkScrollable : styles.scrollable} 2xl:gap-x-2`} id='scrollable'>
         {proyectsData.map((proyect, index) => {
           return (
             <article key={index} className='ml-2 min-w-[450px] h-full md:min-w-[500px] md:max-w-[500px] 2xl:min-w-[600px] 2xl:max-w-[600px] flex p-1 gap-x-1 2xl:gap-x-0'>
