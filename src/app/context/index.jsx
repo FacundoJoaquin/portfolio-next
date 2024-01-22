@@ -8,6 +8,7 @@ export function AppWrapper({ children }) {
   const [ui, setUi] = useState({
     hidden: false,
     dark: false,
+    modal: false
   });
 
   return (

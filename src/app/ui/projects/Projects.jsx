@@ -108,10 +108,13 @@ const proyectsData = [
 const Projects = ({ position }) => {
   const [showModal, setShowModal] = useState(false)
   const [selectedProject, setSelectedProject] = useState(null);
+  const { ui, setUi } = useAppContext()
 
   const handleButtonClick = (index) => {
     setSelectedProject(proyectsData[index]);
     setShowModal(true);
+    setUi((prevUi) => ({ ...prevUi, modal: true }));
+
   };
 
   useEffect(() => {
@@ -150,9 +153,14 @@ const Projects = ({ position }) => {
     };
   }, []);
 
-  const { ui } = useAppContext()
+const handleCloseModal = () => {
+  setShowModal(false);
+  setUi((prevUi) => ({ ...prevUi, modal: false }));
+
+}
+
   return (
-    <ContentContainer style={`${position} bg-red-500 w-full h-full px-6 py-4 overflow-hidden`}>
+    <ContentContainer style={`${position} w-full h-full px-6 py-4 overflow-hidden`}>
       <ContentTitle>Proyectos</ContentTitle>
       <div className={`${!ui.dark ? styles.darkScrollable : styles.scrollable} 2xl:gap-x-2`} id='scrollable'>
         {proyectsData.map((proyect, index) => {
@@ -185,7 +193,7 @@ const Projects = ({ position }) => {
           )
         })}
         {showModal && selectedProject && (
-          <Modal close={() => setShowModal(false)}>
+          <Modal close={handleCloseModal}>
             <p>Lamentablemente, al estar en producción no puedo mostrartelo.</p>
             <p>{selectedProject.explained}</p>
           </Modal>

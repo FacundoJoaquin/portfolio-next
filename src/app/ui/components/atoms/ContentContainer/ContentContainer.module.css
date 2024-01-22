@@ -17,3 +17,17 @@
 
 
 }
+
+.darkContainerModal {
+    background: rgba(51, 45, 88, 0.562);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(120, 118, 118, 0.3);
+}
+
+.containerModal {
+    background: rgba(120, 118, 118, 0.15);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(120, 118, 118, 0.3);
+}

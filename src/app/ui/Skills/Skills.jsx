@@ -1,12 +1,10 @@
+import Image from "next/image";
 import { BiLogoPostgresql } from "react-icons/bi";
 import {
-	DiCss3,
-	DiDocker,
 	DiGit,
 	DiHtml5,
-	DiLaravel,
 	DiReact,
-	DiSass,
+	DiSass
 } from "react-icons/di";
 import {
 	SiCss3,
@@ -16,14 +14,10 @@ import {
 	SiTailwindcss,
 	SiTypescript,
 } from "react-icons/si";
+import pythonLogo from "../../../../public/python.svg";
 import ContentContainer from "../components/atoms/ContentContainer/ContentContainer";
 import ContentTitle from "../components/atoms/ContentTitle/ContentTitle";
-import Laravel from "../components/icons/Laravel";
 import style from "./skills.module.css";
-import Image from "next/image";
-import pythonLogo from "../../../../public/python.svg";
-import { AnimatedTooltip } from "../components/atoms/AnimatedTooltip/AnimatedTooltip";
-import { Tooltip } from "../components/atoms/Tooltip/Tooltip";
 
 const technologies = [
 	{ name: "Svelte", icon: <SiSvelte className="size-16 text-[#FF3E00]" />, position: "col-start-3 row-start-3", svgStyle: "" },
