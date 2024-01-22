@@ -6,7 +6,7 @@ const ContentContainer = ({children, style}) => {
   
   return (
     <section
-      className={`${ui.modal ? (ui.dark ? styles.darkContainerModal : styles.containerModal) : (ui.dark ? styles.darkContainer : styles.container)} ${style}`}
+      className={`${ui.modal ? (ui.dark ? styles.containerModal : styles.darkContainerModal) : (!ui.dark ? styles.darkContainer : styles.container)} ${style}`}
     >
         {children}
     </section>
