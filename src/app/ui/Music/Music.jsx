@@ -61,7 +61,7 @@ const Music = ({ position }) => {
                 </audio>
 
                 <BiSkipNext className="cursor-pointer hover:scale-[1.1] transition-all duration-200 -rotate-90 size-16 text-darkSurface-100 dark:text-zinc-400 2xl:size-24 hover:text-darkSurface-200 dark:hover:text-zinc-500" onClick={skipBackwardHandler} />
-                <button onClick={playPauseHandler}>
+                <button name='handler_music' onClick={playPauseHandler}>
                     {isPlaying ? (
                         <BiPause className="-rotate-90 hover:scale-[1.1] transition-all duration-200 text-darkSurface-100 size-16 dark:text-zinc-400 2xl:size-24 hover:text-darkSurface-200 dark:hover:text-zinc-500" />
                         ) : (

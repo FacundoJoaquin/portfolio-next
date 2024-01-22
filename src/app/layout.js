@@ -14,7 +14,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${poppins.className} h-dvh w-screen dark:bg-white bg-slate-900 `}>
+      <body className={`${poppins.className} h-dvh w-screen dark:bg-white bg-slate-900 `} suppressHydrationWarning={true}>
         <AppWrapper>
           <AnimatedBg />
           {children}

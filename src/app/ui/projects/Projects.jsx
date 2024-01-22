@@ -178,14 +178,14 @@ const handleCloseModal = () => {
                 <p className='text-sm 2xl:text-xl dark:text-black text-darkSurface-100'>{proyect.tecnologies}</p>
                 <p className="2xl:text-2xl dark:text-black text-darkSurface-100">{proyect.description}</p>
                 {proyect.work === true ? (
-                  <button href={'#'} onClick={() => handleButtonClick(index)}
+                  <button aria-label='Abrir modal' name='openmodal' href={'#'} onClick={() => handleButtonClick(index)}
                     className='hover:scale-[1.1] grid place-items-center hover:text-black  transition-all duration-200 size-7  2xl:size-10 px-2'>
                     <RiEyeLine className='size-7 2xl:size-10 dark:text-[#333] text-darkSurface-300 hover:text-darkSurface-400' />
                   </button>
                 ) : (
                   <><span className='flex gap-x-4'>
-                    <Link href={proyect.github} className='hover:scale-[1.1] hover:text-black  transition-all duration-200 size-7  2xl:size-10 px-2'><SiGithub className='size-7 2xl:size-10 dark:text-[#333] text-darkSurface-300 hover:text-darkSurface-400' href={`Repositorio de github de ${proyect.name}`} /> </Link>
-                    <Link href={proyect.urlDeploy} className='hover:scale-[1.1] hover:text-black transition-all duration-200 size-7 2xl:size-10 px-2'><SiNetlify className='size-7 2xl:size-10 dark:text-[#333] text-darkSurface-300 hover:text-darkSurface-400' href={`Repositorio de github de ${proyect.name}`} /> </Link>
+                    <Link name={`Link al repositorio de github de ${proyect.name}`} href={proyect.github} className='hover:scale-[1.1] hover:text-black  transition-all duration-200 size-7  2xl:size-10 px-2'><SiGithub className='size-7 2xl:size-10 dark:text-[#333] text-darkSurface-300 hover:text-darkSurface-400' href={`Repositorio de github de ${proyect.name}`} /> </Link>
+                    <Link name={`Link al deploy de ${proyect.name}`} href={proyect.urlDeploy} className='hover:scale-[1.1] hover:text-black transition-all duration-200 size-7 2xl:size-10 px-2'><SiNetlify className='size-7 2xl:size-10 dark:text-[#333] text-darkSurface-300 hover:text-darkSurface-400' href={`Repositorio de github de ${proyect.name}`} /> </Link>
                   </span> </>
                 )}
               </span>
