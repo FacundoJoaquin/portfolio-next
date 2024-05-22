@@ -10,6 +10,8 @@ import Router from '../../../../public/Router.svg'
 import Pokeball from '../../../../public/pokeball.svg'
 import Radio from '../../../../public/radio.svg'
 import Ywg from '../../../../public/ywg.png'
+import Alquisiera from '../../../../public/alquisiera1.png'
+
 import Pedidosya from '../../../../public/pedidosya.svg'
 import { SiGithub, SiNetlify } from 'react-icons/si'
 import Link from 'next/link'
@@ -17,7 +19,20 @@ import ContentTitle from '../components/atoms/ContentTitle/ContentTitle';
 import { useAppContext } from '../../context';
 import { RiEyeLine } from 'react-icons/ri';
 import Modal from '../components/atoms/Modal/Modal'
+
 const proyectsData = [
+  {
+    name: 'Alquisiera',
+    tecnologies: 'Next | Firebase | Express | Tailwind',
+    description: 'Aplicación web que recolecta, mediante cronjob, los alquileres de 8 distintas inmobiliarias de mi ciudad.',
+    github: 'https://github.com/FacundoJoaquin/scrapp-front',
+    deploy: 'netlify',
+    logo: Alquisiera,
+    urlDeploy: 'https://alquisiera.vercel.app/',
+    work: false,
+    explained: '',
+    size: 'w-12 2xl:w-16'
+  },
   {
     name: 'Tuki',
     tecnologies: 'React | Firebase | Redux | Tailwind',
@@ -169,7 +184,7 @@ const handleCloseModal = () => {
               <div className='min-w-16 max-w-16 2xl:min-w-24 2xl:max-w-24'>
                 <div className={`${styles.container} size-14 rounded-full grid place-items-center overflow-hidden 2xl:size-20`}>
 
-                  <Image alt={`Logo de ${proyect.name}}`} src={proyect.logo} className={`${proyect.size} `} />
+                  <Image alt={`Logo de ${proyect.name}`} src={proyect.logo} className={`${proyect.size} `} />
                 </div>
               </div>
 
